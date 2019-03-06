@@ -1,0 +1,436 @@
+
+
+
+@mixin course_deco($course_color:#0070c6){
+   background-color:$course_color;
+   content:' ';
+   position: absolute;
+   right: 0px;
+   width: 4px;
+   height: 100%;
+}
+@mixin icon_block(){
+   @extend %transition;
+   overflow: hidden;
+   box-sizing: border-box;
+   width: 100px;
+   height: 90px;
+   margin: 18px auto 0;
+   border-radius: 4px;
+   background-color:$color4;
+   .icon{
+      display: block;
+      text-align: center;
+      width: 100%;
+      i{
+         margin: 18px 0 0;
+         position: relative;
+         font-size: 28px;
+         color: $color6;
+      }
+   }
+   .classification{
+      @extend %CenterWraper;
+      margin: 10px auto 0;
+      color: $color6;
+      font-size: 13px;
+      padding: 0 5px;
+      width: 100px;
+      height: 42px;
+      line-height: 14px;
+   }
+}
+@mixin icon_block_hover(){
+   &:hover > .images > .icon_block{
+      background-color: $color5;
+   }
+}
+@mixin article(){
+   @extend %wrap;
+   margin: 6px 0;
+   width:100%;
+   height: 70px;
+   line-height: 24px;
+}
+
+@mixin M1171() {
+   @media all and (max-width:$media-1171) {
+      @content;
+   }
+}
+@mixin M930() {
+   @media all and (max-width:$media-930) {
+      @content;
+   }
+}
+@mixin M770() {
+   @media all and (max-width:$media-770) {
+      @content;
+   }
+}
+@mixin M580() {
+   @media all and (max-width:$media-580) {
+      @content;
+   }
+}
+
+html{
+   //overflow-x: hidden;
+
+   .blocking_style_search{
+      font-family: '微軟正黑體';
+      .bss-content-box{
+         position: relative;
+         float: left;
+         display: block;
+         width:100%;
+
+         //article
+         .bss-container{
+            @extend %transition;
+            @extend %shadow;
+            background-color: $color2;
+            &:hover{
+               @extend %transform-type1;
+            }
+            position:relative;
+            display:block;
+            box-sizing: border-box;
+            width:480px;
+            height: 128px;
+            margin: 20px 15px;
+            float: left;
+            overflow: hidden;
+
+            @include M1171{
+               width:100%;
+            }
+            @include M770{
+               margin: 10px 0px;
+            }
+
+            .images{
+               display:block;
+               box-sizing: border-box;
+               width: 169px;
+               height: 127.5px;
+               float: left;
+               @include M580{
+                  display: none;
+               }
+               > img{
+                  display: block;
+               }
+            }
+
+               > .content{
+                  display:block;
+                  width: calc(100% - 170px);
+                  margin: 0;
+                  padding:8px 15px 8px 10px;
+                  box-sizing: border-box;
+                  float: left;
+                  @include M580{
+                     width: 100%;
+                  }
+                  .title{
+                     width: 100%;
+                     h3{
+                        @extend %nowrap;
+                        @extend %h3;
+                        color: $color1;
+                        width: 100%;
+                        margin: 2px 0; 
+                        padding: 0;
+                     }
+                  }
+               .article{
+                  @include article;
+               }
+            }
+
+         }
+
+         //Course
+         .bss-container.course{
+            &.single::after{
+               @include course_deco(#06abc4);
+            }
+            &.all::after{
+               @include course_deco;
+            }
+            > .images{
+               display:block;
+               box-sizing: border-box;
+               width: 169px;
+               float: left;
+               @include M580{
+                  display: none;
+               }
+               > img{
+                  display: block;
+                  width: 100%;
+               
+               }
+            }
+         
+            > .content{
+               display:block;
+               width: calc(100% - 170px);
+               margin: 0;
+               padding:3px 15px 3px 10px;
+               box-sizing: border-box;
+               float: left;
+               @include M580{
+                  width: 100%;
+               }
+               > .title{
+                  width: 100%;
+
+                  h3{
+                     @extend %nowrap;
+                     @extend %h3;
+                     color:$color1;
+                     width: 100%;
+                     margin: 2px 0; 
+                     padding: 0;
+                  }
+               }
+
+               > .breadcrumbs{
+                  width: 100%;
+                  float: left;
+                  text-align: left;
+                  margin: 10px 0 0 0;
+                  padding:0;
+                  > span{
+                     @extend %content;
+                     text-align: left;
+                  }
+                  @include M580{
+                     height: 47px;
+                     overflow: hidden;
+                  }
+               }
+               > .info{
+                  display: block;
+                  float: left;
+                  margin: 34px 0 0 0;
+                  width: 100%;
+                  bottom: 0px;
+                  @include M580{
+                     margin: 8px 0 0 0;
+                  }
+                  > .course_type{
+                     float: left;
+                     width: 70px;
+                  }
+                  > .price{
+                     text-align:  right;
+                     float: right;
+                     width: 200px;
+                     @include M580{
+                        width: 100px;
+                     }
+                     >.discount{
+                        color: $color3;
+                        font-weight: 600;
+                        font-size:16px;
+                     }
+                     >.original{
+                        text-decoration:line-through;
+                        margin: 0 10px 0 0;
+                        font-size:15px;
+                        @include M580{
+                           display: none;
+                        }
+                     }
+                  }
+
+                  > .teacher{
+                     text-align:  right;
+                     float: right;
+                     width: 200px;
+                     @include M580{
+                        width: 100px;
+                     }
+                  }
+               }
+
+            }
+         
+         }
+
+         //Brief
+         .bss-container.brief{
+            @include icon_block_hover;
+            > .images{
+               display:block;
+               box-sizing: border-box;
+               width: 169px;
+               float: left;
+               @include M580{
+                  display: none;
+               }
+               .icon_block{
+                  @include icon_block;
+               }
+            }
+            > .content{
+               .schedule{
+                  @extend %wrap;
+                  margin: 8px 0 0;
+                  width:100%;
+                  height: 70px;
+                  line-height: 23px;
+                  span{
+                     width: 100%;
+                     display: block;
+                     color:$color7;
+                  }
+               }
+            }
+
+
+         }
+         
+         //Experience
+         .bss-container.experience{
+            display:flex;
+            @include M930{
+               display:block;
+            }
+            .images{
+
+               box-sizing: border-box;
+               width: 169px;
+               height: 127px;
+               float: left;
+               overflow: hidden;
+
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               @include M580{
+                  display: none;
+               }
+
+               > img{
+                  border-radius: 3px;
+                  max-width: 55%;
+               }
+            }
+            > .content{
+               .article_container{
+                  @extend %wrap;
+                  margin: 5px 0;
+                  width:100%;
+                  height: 70px;
+                  line-height: 20px;
+                  .class_type{
+                     display:block; 
+                     width: 100%;
+                     font-weight: 600;
+                     color:$color8-subtitle;
+                  }
+                  .article{
+                     @extend %wrap;
+                  }
+               }
+            } 
+
+         }
+
+         //Exam list
+         .bss-container.exam_list{
+            @include icon_block_hover;
+         > .images{
+            display:block;
+            box-sizing: border-box;
+            width: 169px;
+            float: left;
+            @include M580{
+               display: none;
+            }
+            .icon_block{
+               @include icon_block;
+            }
+         }
+
+
+         }
+
+         //bookstore
+         .bss-container.book_store{
+            > .images{
+               box-sizing: border-box;
+               width: 169px;
+               height: 127px;
+               float: left;
+               overflow: hidden;
+
+               > img{
+                  border-radius: 3px;
+                  max-height: 100%;
+                  margin:  0 auto;
+               }
+            }
+            
+            > .content{
+               .info{
+                  @extend %wrap;
+                  margin: 5px 0;
+                  width:100%;
+                  height: 70px;
+                  line-height: 20px;
+                  .item_info{
+                     display:block; 
+                     width: 100%;
+                     font-weight: 600;
+                     color:$color8-subtitle;
+                  }
+                  .summary{
+                     @include article;
+                  }
+               }
+            } 
+
+
+         }
+
+         //Video Zone
+         .bss-container.video_zone{
+            display:flex;
+            @include M930{
+               display:block;
+            }
+            .images{
+               
+               @extend %fadeIn;
+               background-color:$color9;
+               
+               box-sizing: border-box;
+               width: 169px;
+               height: 127px;
+               float: left;
+               overflow: hidden;
+
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               @include M580{
+                  display: none;
+               }
+
+               > img{
+                  border-radius: 3px;
+                  max-width: 100%;
+               }
+            }
+         }
+
+      }
+
+   }
+
+}

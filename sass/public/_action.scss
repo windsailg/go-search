@@ -1,0 +1,40 @@
+
+
+$bazer1:.17,.67,.83,.67;
+$duration1:3s;
+$transform-type1:translate(-3px,-3px);
+$transform-shade-type1:5px 5px 15px rgba(124, 124, 124, 0.45);
+
+%transition{
+    transition: .2s all ease-out ; 
+}
+
+/*normal type*/
+%transform-type1{
+    cursor:pointer;
+    transform:$transform-type1;
+    box-shadow: $transform-shade-type1;
+}
+
+%animation-curcle{
+    animation-name: curcle;
+    animation-duration: $duration1;
+    animation-iteration-count: infinite;
+    animation-timing-function:cubic-bezier($bazer1);
+}
+
+%none-selection{
+    user-select: none;
+}
+
+%fadeIn{
+    display: block;
+    -webkit-animation: fadeIn 250ms;
+    animation: fadeIn 250ms;
+}
+
+%fadeInUp{
+    -webkit-animation: fadeInUp 250ms;
+    animation: fadeInUp 250ms;
+}
+

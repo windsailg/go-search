@@ -1,0 +1,44 @@
+
+
+
+$bazer1:.17,.67,.83,.67;
+$duration1:3s;
+
+$content:15px;
+
+
+$h2-fontsize:22px;
+$h3-fontsize:20px;
+
+%nowrap{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+%wrap{
+    white-space: normal;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+%CenterWraper{
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center; 
+}
+
+%h1{
+
+}
+%h2{
+    
+}
+%h3{
+    font-size: $h3-fontsize;
+}
+%h4{
+    
+}
+%content{
+    font-size: $content;
+}

@@ -1,0 +1,32 @@
+$headercolor:rgb(85, 85, 85);
+
+$bgcolor1:rgb(85, 85, 85);
+
+$bgshade:0px 0px 20px rgba(124, 124, 124, 0.247);
+
+$color1:#F29001;//搜尋共用標題
+$color2:rgb(255, 255, 255);//搜尋區塊共用背景
+$color3:rgb(214, 0, 0);//搜尋共用
+
+$color4:#50820F;//考試資訊2
+$color5:#ffa521;//考試資訊2 : hover
+$color6:#fff;//考試資訊icon-box color
+$color7:rgb(10, 10, 10);//考試資訊icon-box color
+
+$color8-subtitle:rgb(56, 56, 56);//考試資訊icon-box color
+$color9:#2E3037;//video_background
+
+%header-bgcolor{
+    background-color: $headercolor;
+}
+
+%body-colors{
+    background-color: $bgcolor1;
+}
+
+%shadow{
+    box-shadow:$bgshade;
+}
+
+
+
